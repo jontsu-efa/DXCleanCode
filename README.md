@@ -42,6 +42,8 @@ Create and connect to your database and initialise it by typing the following at
 psql < schema.sql 
 ```
 
+Should you not have PostgreSQL installed, you can use this script https://github.com/hy-tsoha/local-pg made by the University of Helsinki for personal development purposes. If you have a Mac, the easiest way is to use https://postgresapp.com. Alternatively, you can find instructions on the official PostgreSQL website at https://www.postgresql.org.
+
 To install the necessary dependencies and start the development server, execute the following commands in your terminal. Make sure you are in the root directory of the application:
 
 ```bash
