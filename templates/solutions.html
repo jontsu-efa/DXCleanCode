@@ -1,0 +1,26 @@
+{% block solutions %}
+    <section class="solution-submission">
+        <h2>Submit Github links to your solution and comment reviews:</h2>
+        <form id="submit-solution" action="{{ url_for('submit_solution_route', exercise_id=exercise.id) }}" method="POST">
+            <div class="input-field">
+                <label for="solution-link">Solution link:</label>
+                <input type="text" class="form-input" id="solution-link" name="solution_link" value="{{ solution_data.solution_link if solution_data and solution_data.solution_link else 'No answer submitted yet' }}">
+            </div>
+            <div class="input-field">
+                <label for="comment-link-1">Comment link:</label>
+                <input type="text" class="form-input" id="comment-link-1" name="comment_link_1" value="{{ solution_data.comment_link_1 if solution_data and solution_data.comment_link_1 else 'No answer submitted yet' }}">
+            </div>
+            <div class="input-field">
+                <label for="comment-link-2">Comment link:</label>
+                <input type="text" class="form-input" id="comment-link-2" name="comment_link_2" value="{{ solution_data.comment_link_2 if solution_data and solution_data.comment_link_2 else 'No answer submitted yet' }}">
+            </div>
+            <div class="input-field">
+                <label for="comment-link-3">Comment link:</label>
+                <input type="text" class="form-input" id="comment-link-3" name="comment_link_3" value="{{ solution_data.comment_link_3 if solution_data and solution_data.comment_link_3 else 'No answer submitted yet' }}">
+            </div>
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+            <input type="submit" class="button" value="Submit">
+        </form>
+    </section>
+{% endblock %}
+

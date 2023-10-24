@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="input-field">
+        {% if session.role == "teacher" %}
+            <a href="{{ url_for('create_exercise_route') }}" class="button">Create Exercise</a>
+            <a href="{{ url_for('manage_permissions_route') }}" class="button">Manage Permissions</a>
+        {% endif %}
+        <h2>Available Exercises</h2>
+    </div>
+    <ul>
+       {% if exercises %}
+           {% for exercise in exercises %}
+               <a href="/exercise/{{ exercise.id }}" class="exercise-link">
+                   <div class="exercise-box">
+                       <li>
+                           <span class="exercise-title">{{ exercise.name }}</span>
+                           <p>{{ exercise.tasks[:250] }}{% if exercise.tasks|length > 100 %}...{% endif %}</p>
+                       </li>
+                   </div>
+               </a>
+           {% endfor %}
+       {% else %}
+           <li>No exercises available.</li>
+       {% endif %}
+    </ul>
+{% endblock %}

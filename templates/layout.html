@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DX Practice tool</title>
+</head>
+<body>
+    <div class="navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('index_route') }}" class="button home-button">Home</a>
+            <h1>DX Practice tool</h1>
+            <div>
+                {% if session.github_handle %}
+                    <a href="{{ url_for('logout_route') }}" class="button logout-button">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login_route') }}" class="button login-button">Login &#x2192;</a>
+                {% endif %}
+            </div>
+         </div>
+         {% if session.github_handle %}
+             <p class="welcome-message">Welcome, {{ session.github_handle }}</p>
+         {% endif %}
+    </div>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

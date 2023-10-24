@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, ul, p, .welcome-message p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAF3E0;
+    color: #1C1C2D;
+    line-height: 1.6;
+    overflow-y: scroll;
+}
+
+h1 {
+    color: #1C1C2D;
+    text-align: center;
+    padding: 20px 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.welcome-message  {
+    color: #1C1C2D;
+    font-weight: bold;
+}
+
+.input-field {
+    margin: 20px 0 10px 20px;
+}
+
+a.exercise-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.exercise-box {
+    display: block;
+    background-color: #D9CAB3;
+    padding: 10px;
+    margin: 0 20px 10px;
+    border-radius: 5px;
+}
+
+.exercise-title {
+    color: #1C1C2D;
+    font-weight: bold;
+}
+
+.button, .input-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #1C1C2D;
+    color: #FAF3E0;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 100px;
+    padding: 0 10px;
+    margin: 5px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAF3E0;
+    color: #1C1C2D;
+}
+
+.form-textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.exercise-content {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.exercise-content header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.task-text {
+    white-space: pre-line;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.solution-submission form {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+}
+
+.solution-submission label {
+ display: inline-block;
+ margin-right: 10px;
+ width: 150px;
+}

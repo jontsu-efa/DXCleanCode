@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Manage Permissions</h1>
+    <div class="input-field">
+        <h2>Add Permitted User</h2>
+        <form method="POST">
+            Github handle: <input type="text" name="github_handle" required>
+            Role:
+            <select name="role" required>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+            <input type="submit" value="Add" class="button">
+        </form>
+    </div>
+    
+    <div class="input-field">
+        <h2>Permission Requests</h2>
+        <ul>
+           {% if requests %}
+               {% for request in requests %}
+                   <li>
+                       {{ request.requested_role }}, {{ request.github_handle }} <br>
+                       <form method="POST" style="display: inline-block;">
+                           <input type="hidden" name="github_handle" value="{{ request.github_handle }}">
+                           <input type="hidden" name="role" value="{{ request.requested_role }}">
+                           <input type="hidden" name="request_id" value="{{ request.id }}">
+                           <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                           <input type="hidden" name="action" value="approve">
+                           <input type="submit" value="Approve" class="button">
+                       </form>
+                       <form method="POST" style="display: inline-block;">
+                           <input type="hidden" name="request_id" value="{{ request.id }}">
+                           <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                           <input type="hidden" name="action" value="reject">
+                           <input type="submit" value="Reject" class="button">
+                       </form>
+                   </li>
+               {% endfor %}
+           {% else %}
+               <li>No pending requests</li>
+           {% endif %}
+        </ul>
+    </div>
+    
+    <div class="input-field">
+        <h2>Permitted Users</h2>
+        <ul>
+           {% if permitted_users %}
+               {% for user in permitted_users %}
+                   <li>
+                       {{ user.role }}, {{ user.github_handle }} <br>
+                       <form method="POST" action="{{ url_for('delete_permitted_user_route', github_handle=user.github_handle) }}" style="display: inline-block;">
+                           <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                           <input type="submit" value="Delete" class="button">
+                       </form>                                       
+                   </li>
+               {% endfor %}
+           {% else %}
+               <li>No permitted users.</li>
+           {% endif %}
+        </ul>
+    </div>
+{% endblock %}

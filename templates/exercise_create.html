@@ -1,0 +1,17 @@
+{% extends "layout_exercise.html" %}
+{% block title %}Create Exercise{% endblock %}
+{% block exercise_content %}
+<form method="POST">
+    <div class="input-field">
+        <label for="name">Name:</label>
+        <input type="text" class="form-input" id="name" name="name" required>
+        
+        <label for="tasks">Tasks:</label>
+        <textarea class="form-textarea" id="tasks" name="tasks" required></textarea>
+    </div>
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+    <div class="action-buttons">
+        <input type="submit" value="Create" class="button input-button">
+    </div>
+</form>
+{% endblock %}

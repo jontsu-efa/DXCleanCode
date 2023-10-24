@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST">
+        <div class="input-field">
+            Github handle: <input type="text" name="github_handle" required><br>
+            Password: <input type="password" name="password1" required><br>
+            Password again: <input type="password" name="password2" required><br>
+        <br>
+        </div>
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+        <input type="submit" value="Register" class="button">
+        <a href="{{ url_for('request_permission_route') }}" class="button">Request permission</a>
+    </form>
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<article class="exercise-content">
+    <header>
+        <h1>{% block title %}{% endblock %}</h1>
+    </header>
+    <section>
+        {% block exercise_content %}{% endblock %}
+    </section>
+    {% block action_buttons %}{% endblock %}
+</article>
+{% endblock %}

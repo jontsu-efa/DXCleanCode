@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Login</h1>
+    <form method="POST">
+        <div class="input-field">
+            Github handle: <input type="text" name="github_handle" required><br>
+            Password: <input type="password" name="password" required><br>
+        </div>
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+        <input type="submit" value="Login" class="button">
+        <a href="{{ url_for('register_route') }}" class="button">Register</a>
+       </form>
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+{% endblock %}
